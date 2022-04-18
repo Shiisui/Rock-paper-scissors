@@ -33,11 +33,16 @@
             
             let playerPlayed = prompt("Rock or paper or scissors");
 
-            let playerfilter = playerPlayed.slice(1).toLowerCase(playerPlayed);
+            let playerlowercase = playerPlayed.slice(1).toLowerCase(playerPlayed);
             
-            console.log(playerfilter);
+            
 
-            
+            let playeruppercase = playerPlayed.slice(0, 1).toUpperCase(playerPlayed);
+
+
+            playerPlayed = playeruppercase + playerlowercase;
+
+            console.log(playerPlayed);
             
 
 
