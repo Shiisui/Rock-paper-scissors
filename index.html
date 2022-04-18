@@ -79,7 +79,7 @@
             
                 if (computer === player) {
                     
-                    console.log("tie");
+                    console.log( `${player}` + " and " + `${computer}` + " Make's a tie ");
                 }
              
                  else if (player === paper && computer === rock || player === scissors && computer === paper || player === rock && computer === scissors) {
@@ -87,7 +87,7 @@
                      return "player";
                 }
                 else {
-                    console.log("You lost");
+                    console.log("You lost!" +  ` ${computer}` + " beats " + `${player}`);
                     return "computer";
                 }
                 
@@ -120,13 +120,13 @@
             }
 
             if (playerPts > computerPts) {
-                console.log("You won the game \n" + "Player Result: " +`${playerPts}` + " Computer Result: " + `${computerPts}`);
+                console.log("You won the game \n" + "Player Result: " +`${playerPts}\n` + "Computer Result: " + `${computerPts}`);
             }
             else if (playerPts < computerPts) {
-                console.log("You lost the game \n" + "Player Result: " +`${playerPts}` + " Computer Result: " + `${computerPts}`);
+                console.log("You lost the game \n" + "Player Result: " +`${playerPts}\n` + "Computer Result: " + `${computerPts}`);
             }
             else {
-                console.log("The game is a tie \n" + "Player Result: " +`${playerPts}` + " Computer Result: " + `${computerPts}`);
+                console.log("The game is a tie \n" + "Player Result: " +`${playerPts}\n` + "Computer Result: " + `${computerPts}`);
             }
         }
 
