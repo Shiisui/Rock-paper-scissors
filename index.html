@@ -115,13 +115,19 @@
                         computerPts++;
                     break;
 
-                    
-
                 }
              
             }
 
-
+            if (playerPts > computerPts) {
+                console.log("You won the game \n" + "Player Result: " +`${playerPts}` + " Computer Result: " + `${computerPts}`);
+            }
+            else if (playerPts < computerPts) {
+                console.log("You lost the game \n" + "Player Result: " +`${playerPts}` + " Computer Result: " + `${computerPts}`);
+            }
+            else {
+                console.log("The game is a tie \n" + "Player Result: " +`${playerPts}` + " Computer Result: " + `${computerPts}`);
+            }
         }
 
         
