@@ -11,12 +11,26 @@
         let computerPlayed;
 
         function computerPlay() {
-             computerPlayed = Math.floor(Math.random()*3) + 1;
+            computerPlayed = Math.floor(Math.random()*3) + 1;
             
-            return computerPlayed;
+            if (computerPlayed === 1) {
+                return "Rock";
+            }
+            else if (computerPlayed === 2) {
+                return "Paper";
+            }
+            else {
+                return "Scissors";
+            }
+
             
         }
-        computerPlay();
+        console.log(computerPlay())
+
+        function playRound(playerSelection, computerSelection) {
+            
+
+        }
         
     </script>
 </body>
