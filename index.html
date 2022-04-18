@@ -65,6 +65,14 @@
             if (player === computer) {
                 return "tie";
             }
+            else {
+                if (player === paper && computer === rock || player === scissors && computer === paper || player === rock && computer === scissors) {
+                    return "You win!" +  ` ${player}` + " beats " + `${computer}`;
+                }
+                else {
+                    return "You lose!" + `${computer}` + " beats " + `${player}`;
+                }
+            }
             
 
         }
