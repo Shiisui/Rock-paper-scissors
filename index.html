@@ -15,6 +15,10 @@
 
         let player;
         let computer;
+
+        let playerPts = 0;
+
+        let computerPts = 0;
         function computerPlay() {
             computerPlayed = Math.floor(Math.random()*3) + 1;
             
@@ -74,7 +78,8 @@
             
             
                 if (computer === player) {
-                    return "tie";
+                    
+                    console.log("tie");
                 }
              
                  else if (player === paper && computer === rock || player === scissors && computer === paper || player === rock && computer === scissors) {
@@ -82,6 +87,7 @@
                      return "player";
                 }
                 else {
+                    console.log("You lost");
                     return "computer";
                 }
                 
@@ -91,16 +97,31 @@
         }
         
         
-        function game(a) {
+        function game() {
             for (let i = 0; i < 5; i++) {
                 
                 player = playerPlay();
                 computer = computerPlay();
                 console.log(player, computer);
-                console.log(playRound(player, computer));
-                
+                let result = (playRound(player, computer));
+
+
+                switch (result) {
+                    case "player":
+                        playerPts++;
+                    break;
+
+                    case "computer":
+                        computerPts++;
+                    break;
+
+                    
+
+                }
              
             }
+
+
         }
 
         
