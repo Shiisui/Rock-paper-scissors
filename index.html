@@ -12,6 +12,9 @@
         const paper = "Paper";
         const rock = "Rock";
         const scissors = "Scissors";
+
+        let player;
+        let computer;
         function computerPlay() {
             computerPlayed = Math.floor(Math.random()*3) + 1;
             
@@ -29,8 +32,8 @@
         }
         function playerPlay() {
             
-            // just a test, this function have to ask for player input and return it
-            
+            // this function have to ask for player input and return it
+            // make the player input case insensitive 
             let playerPlayed = prompt("Rock or paper or scissors");
 
             let playerlowercase = playerPlayed.slice(1).toLowerCase(playerPlayed);
@@ -41,10 +44,6 @@
 
 
             playerPlayed = playeruppercase + playerlowercase;
-
-            console.log(playerPlayed);
-            
-
 
             
             if (playerPlayed === rock) {
@@ -58,11 +57,9 @@
             }
         }
         
-        
-        let player = playerPlay();
-        let computer =computerPlay();
+     
 
-        console.log(player, computer);
+       
 
         function playRound(playerSelection, computerSelection) {
 
@@ -75,25 +72,40 @@
             let computer = computerSelection;
 
             
-            if (player === computer) {
-                return "tie";
-            }
-            else {
-                if (player === paper && computer === rock || player === scissors && computer === paper || player === rock && computer === scissors) {
-                    return "You win!" +  ` ${player}` + " beats " + `${computer}`;
+            
+                if (computer === player) {
+                    return "tie";
+                }
+             
+                 else if (player === paper && computer === rock || player === scissors && computer === paper || player === rock && computer === scissors) {
+                     console.log("You win!" +  ` ${player}` + " beats " + `${computer}`);
+                     return "player";
                 }
                 else {
-                    return "You lose!" + ` ${computer}` + " beats " + `${player}`;
+                    return "computer";
                 }
-            }
+                
+            
             
 
         }
-       
         
-       
         
-        console.log(playRound(player, computer));
+        function game(a) {
+            for (let i = 0; i < 5; i++) {
+                
+                player = playerPlay();
+                computer = computerPlay();
+                console.log(player, computer);
+                console.log(playRound(player, computer));
+                
+             
+            }
+        }
+
+        
+        game();
+      
     </script>
 </body>
 </html>
