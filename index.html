@@ -26,8 +26,15 @@
             
         }
         console.log(computerPlay());
+        console.log(playerPlay())
 
         function playRound(playerSelection, computerSelection) {
+
+
+            
+
+            let player = playerSelection;
+            let computer = computerSelection;
 
             
 
@@ -37,13 +44,28 @@
            let winner = "Rock";
            let loser = "Scissors";
             if (1 > 0) {
-            return console.log("You Lose!" + ` ${winner}`  + " beats " + `${loser}`);
+            return console.log("You Lose!" + ` ${player}`  + " beats " + `${computer}`);
             }
 
-
+            
 
         }
-        console.log(playRound());
+        console.log(playRound(playerPlay(), computerPlay()));
+        
+        function playerPlay() {
+            computerPlayed = Math.floor(Math.random()*3) + 1;
+            
+            if (computerPlayed === 1) {
+                return "Rock";
+            }
+            else if (computerPlayed === 2) {
+                return "Paper";
+            }
+            else {
+                return "Scissors";
+            }
+        }
+        
         
     </script>
 </body>
