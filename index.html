@@ -25,34 +25,10 @@
 
             
         }
-        console.log(computerPlay());
-        console.log(playerPlay())
-
-        function playRound(playerSelection, computerSelection) {
-
-
-            
-
-            let player = playerSelection;
-            let computer = computerSelection;
-
-            
-
-
-
-            
-           let winner = "Rock";
-           let loser = "Scissors";
-            if (1 > 0) {
-            return console.log("You Lose!" + ` ${player}`  + " beats " + `${computer}`);
-            }
-
-            
-
-        }
-        console.log(playRound(playerPlay(), computerPlay()));
-        
         function playerPlay() {
+            
+            // just a test, this function have to ask for player input and return it
+            
             computerPlayed = Math.floor(Math.random()*3) + 1;
             
             if (computerPlayed === 1) {
@@ -67,6 +43,36 @@
         }
         
         
+        let player = playerPlay();
+        let computer =computerPlay();
+
+        console.log(player, computer);
+
+        function playRound(playerSelection, computerSelection) {
+
+
+            // rules
+            const paper = "Paper";
+            const rock = "Rock";
+            const scissors = "Scissors";
+
+            // this function has to determine the winner of the round and print it out
+
+            let player = playerSelection;
+            let computer = computerSelection;
+
+            
+            if (player === computer) {
+                return "tie";
+            }
+            
+
+        }
+       
+        
+       
+        
+        console.log(playRound(player, computer));
     </script>
 </body>
 </html>
