@@ -9,7 +9,9 @@
 <body>
     <script>
         let computerPlayed;
-
+        const paper = "Paper";
+        const rock = "Rock";
+        const scissors = "Scissors";
         function computerPlay() {
             computerPlayed = Math.floor(Math.random()*3) + 1;
             
@@ -29,15 +31,22 @@
             
             // just a test, this function have to ask for player input and return it
             
-            computerPlayed = Math.floor(Math.random()*3) + 1;
+            let playerPlayed = prompt("Rock or paper or scissors");
+
+            let playerfilter = playerPlayed.slice(1).toLowerCase(playerPlayed);
             
-            if (computerPlayed === 1) {
+            console.log(playerfilter);
+            
+
+
+            
+            if (playerPlayed === rock) {
                 return "Rock";
             }
-            else if (computerPlayed === 2) {
+             if (playerPlayed === paper) {
                 return "Paper";
             }
-            else {
+            if (playerPlayed === scissors) {
                 return "Scissors";
             }
         }
@@ -51,10 +60,7 @@
         function playRound(playerSelection, computerSelection) {
 
 
-            // rules
-            const paper = "Paper";
-            const rock = "Rock";
-            const scissors = "Scissors";
+           
 
             // this function has to determine the winner of the round and print it out
 
@@ -70,7 +76,7 @@
                     return "You win!" +  ` ${player}` + " beats " + `${computer}`;
                 }
                 else {
-                    return "You lose!" + `${computer}` + " beats " + `${player}`;
+                    return "You lose!" + ` ${computer}` + " beats " + `${player}`;
                 }
             }
             
