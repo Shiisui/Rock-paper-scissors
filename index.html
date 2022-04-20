@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
     <title>RPS</title>
 </head>
 <body>
-    <script>
+    <div id="btn">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+
+    
+    <!-- <script>
         let computerPlayed;
         const paper = "Paper";
         const rock = "Rock";
@@ -19,6 +27,9 @@
         let playerPts = 0;
 
         let computerPts = 0;
+
+        
+
         function computerPlay() {
             computerPlayed = Math.floor(Math.random()*3) + 1;
             
@@ -131,8 +142,12 @@
         }
 
         
-        game();
+        let btn = document.getElementById('btn');
+        if (btn) {
+        btn.addEventListener('click', function (e) {
+            console.log(e.target);
+        });}
       
-    </script>
+    </script> -->
 </body>
 </html>
