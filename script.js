@@ -6,6 +6,15 @@ let finished = 1;
 let playerScore = 0;
 let computerScore = 0;
 
+let body = document.querySelector("body");
+
+body.addEventListener('mousemove', function (e) {
+    
+        console.log(e);
+        document.body.style.backgroundColor = "rgb("+e.offsetX+","+e.offsetY+", 40)";
+    
+})
+
 function computerPlay() {
     computerPlayed = Math.floor(Math.random()*3) + 1;
     
@@ -141,17 +150,21 @@ function roundResult (score, p, c) {
 
 function startThegame(e) {
         if (e && finished === 1) {
-    let rock = document.createElement('button');
-    let paper = document.createElement('button');
-    let scissors = document.createElement('button');
+    let rock = document.createElement('img');
+    let paper = document.createElement('img');
+    let scissors = document.createElement('img');
         
     rock.setAttribute('id','rock');
     paper.setAttribute('id','paper');
     scissors.setAttribute('id','scissors');
 
-    rock.textContent = "Rock";
-    paper.textContent = "Paper";
-    scissors.textContent = "Scissors";
+    rock.src="imgs/Rock.jpg";
+    paper.src="imgs/Paper.jpg";
+    scissors.src="imgs/Scissors.jpg";
+
+    // rock.textContent = "Rock";
+    // paper.textContent = "Paper";
+    // scissors.textContent = "Scissors";
 
 
     stopit.appendChild(rock);
@@ -169,7 +182,7 @@ function startThegame(e) {
 
 }
 
-let newDiv = document.querySelector('div');
+let newDiv = document.querySelector('.text');
 
 
 
@@ -195,7 +208,7 @@ function gameResult(score) {
 
 
     }
-if (rounds > 4) {
+if (rounds === 5) {
     if (playerScore > computerScore) {
         newDiv.textContent = "You won the game \n\n" + "Player Result: " +`${playerScore}\n\n` + "Computer Result: " + `${computerScore}`;
     }
