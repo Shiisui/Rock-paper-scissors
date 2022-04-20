@@ -27,14 +27,14 @@ function playRound(playerSelection, computerSelection) {
     let computer = computerSelection;
 
         if (computer === player) {
-            
             return "tie";
         }
      
          else if (player === "Paper" && computer === "Rock" || player === "Scissors" && computer === "Paper" || player === "Rock" && computer === "Scissors") {
-             return "player";
+            return "player";
         }
         else {
+            
             return "computer";
         }
      
@@ -63,7 +63,7 @@ function dothis (e){
             console.log(player);
             console.log(computer);
             console.log(score);
-
+            roundResult(score, player, computer);
             ++rounds;
             
         }
@@ -74,7 +74,7 @@ function dothis (e){
             console.log(player);
             console.log(computer);
             console.log(score);
-
+            roundResult(score, player, computer);
 
             ++rounds;
 
@@ -86,12 +86,14 @@ function dothis (e){
             console.log(player);
             console.log(computer);
             console.log(score);
-
+            roundResult(score, player, computer);
             ++rounds;
             
         }
         else ++rounds;
-        roundResult(score);
+
+
+        
         gameResult(score);
         if (rounds > 4) {
             
@@ -113,14 +115,21 @@ function dothis (e){
 let gameStart = document.getElementById("start");
 gameStart.addEventListener("click", startThegame);
 
-function roundResult (score) {
+function roundResult (score, p, c) {
+    
+    
+
     switch(score) {
         case "player":
-            newDiv.textContent = "You win!";
+            newDiv.textContent = "You win!" +  ` ${p}` + " beats " + `${c}\n\n\n`;
         break;
 
         case "computer":
-            newDiv.textContent = "You lost!";
+            newDiv.textContent = "You lost!" +  ` ${c}` + " beats " + `${p}\n\n\n`;
+        break;
+            
+        default: 
+            newDiv.textContent = `${p}` + " and " + `${c}` + " Make's a tie \n\n\n";
         break;
 
         
@@ -178,6 +187,7 @@ function gameResult(score) {
             break;
 
             case "computer":
+                
                 computerScore++;
             break;
 
