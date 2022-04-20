@@ -43,8 +43,8 @@ function dothis (e){
     let score;
     let player;
     let computer;
-    
-        if (rounds >= 5) {
+        
+        if (rounds > 4) {
             
         while (stopit.firstChild) {
             stopit.removeChild(stopit.firstChild);
@@ -64,7 +64,7 @@ function dothis (e){
             console.log(computer);
             console.log(score);
 
-            rounds++;
+            ++rounds;
             
         }
         else if (e.target == paper) {
@@ -76,7 +76,7 @@ function dothis (e){
             console.log(score);
 
 
-            rounds++;
+            ++rounds;
 
         }
          else if (e.target == scissors) {
@@ -87,12 +87,24 @@ function dothis (e){
             console.log(computer);
             console.log(score);
 
-            rounds++;
+            ++rounds;
             
         }
+        else ++rounds;
         roundResult(score);
         gameResult(score);
-       
+        if (rounds > 4) {
+            
+            while (stopit.firstChild) {
+                stopit.removeChild(stopit.firstChild);
+              }
+              finished = 1;
+              rounds = 0;
+              computerScore = 0;
+              playerScore = 0;
+            
+            
+            }
        
         
 
@@ -173,7 +185,7 @@ function gameResult(score) {
 
 
     }
-if (rounds >= 5) {
+if (rounds > 4) {
     if (playerScore > computerScore) {
         newDiv.textContent = "You won the game \n\n" + "Player Result: " +`${playerScore}\n\n` + "Computer Result: " + `${computerScore}`;
     }
