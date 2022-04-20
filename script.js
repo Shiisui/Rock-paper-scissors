@@ -69,10 +69,12 @@ function playRound(playerSelection, computerSelection) {
     let computer = computerSelection;
 
     
+
     
         if (computer === player) {
             
             console.log( `${player}` + " and " + `${computer}` + " Make's a tie \n\n\n");
+            return "tie";
         }
      
          else if (player === paper && computer === rock || player === scissors && computer === paper || player === rock && computer === scissors) {
@@ -133,23 +135,54 @@ rocky.addEventListener('click', dothis);
 papery.addEventListener('click', dothis);
 scissorsy.addEventListener('click', dothis);
 
-console.log(rocky);
+let newDiv = document.querySelector('div');
+
+
+
 
 
 function dothis (e){
-    
+    let score;
     let player;
-    if (e.target == rocky || e.target == papery || e.target == scissorsy ) {
-        if (rocky){
+    let computer;
+        if (e.target == rocky){
             player = "Rock";
-            playRound(player, computerPlay());
+            computer = computerPlay();
+            score = playRound(player, computer );
+            console.log(score);
         }
-        else if (papery) {
+        else if (e.target == papery) {
             player = "Paper";
+
+            computer = computerPlay();
+            score = playRound(player, computer);
+            console.log(score);
+
         }
-        else {
+        else if (e.target == scissorsy) {
             player = "Scissors";
+            computer = computerPlay();
+            score = playRound(player, computer);
+            console.log(score);
         }
+       
+        roundResult(score, player, computer);
+
+}
+   
+function roundResult(score, player, computer) {
+        switch (score) {
+            case "player":
+                newDiv.textContent = "You win!" +  ` ${player}` + " beats " + `${computer}\n\n\n`;
+            break;
+
+            case "computer":
+                newDiv.textContent = "You lost!" +  ` ${computer}` + " beats " + `${player}\n\n\n`;
+            break;
+
+            default:
+                newDiv.textContent = `${player}` + " and " + `${computer}` + " Make's a tie \n\n\n";
+            break;
+
     }
-    else return 0;
 }
