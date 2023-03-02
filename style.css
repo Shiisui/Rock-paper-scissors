@@ -1,6 +1,5 @@
 body {
     background-color: rgb(90, 90, 250);
-    height: 100vh;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -19,6 +18,7 @@ body {
 h1 {
     color: white;
     font-size: 2rem;
+    margin: 0;
 }
 
 
@@ -28,14 +28,13 @@ h1 {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
     justify-content: center;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    height: 100vh;
 }
 
 #game {
-    width: 990px;
-    height: 300px;
+    width: 660px;
+    height: 200px;
     margin-top: 5rem;
     display: flex;
     justify-content: space-around;
@@ -44,7 +43,7 @@ h1 {
 .score-container {
     display: flex;
     width: 200px;
-    margin-top: 10rem;
+    margin-top: 8rem;
     justify-content: center;
 }
 
@@ -54,9 +53,10 @@ h1 {
 }
 
 img {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     -webkit-user-drag: none;
+    user-select: none;
 }
 
 
@@ -88,4 +88,29 @@ img {
 #reset-button:hover {
     cursor: pointer;
     transform: scale(1.3);
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 680px) {
+  #title h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: white;
+      font-style: italic;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  #game {
+    width: 300px;
+    height: 80px;
+  }
+  img {
+      width: 80px;
+      height: 80px;
+  }
 }

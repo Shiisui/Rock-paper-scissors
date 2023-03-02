@@ -73,7 +73,7 @@ function resetGame() {
     scoreText.style.display = "flex";
     endGame.textContent = "";
     resetButton.textContent = "";
-    textTyping.style.display = "block";
+    textTyping.style.display = "inline-block";
     game.style.display = "flex";
 }
 
