@@ -7,12 +7,20 @@ body {
     user-select: none;
 }
 
-h1 {
+#title h1 {
     font-size: 5rem;
     text-align: center;
     color: white;
     font-style: italic;
+    margin-top: -8rem;
+    margin-bottom: 5rem;
 }
+
+h1 {
+    color: white;
+    font-size: 2rem;
+}
+
 
 .main {
     max-width: 1100px;
@@ -20,38 +28,27 @@ h1 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 #game {
     width: 990px;
     height: 300px;
-    margin-top: 10rem;
+    margin-top: 5rem;
     display: flex;
     justify-content: space-around;
 }
 
-.score-label {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    max-width: 500px;
-}
-
-.label {
-    background-color: black;
-    margin-top: 5rem;
-    color: white;
-    text-align: center;
-    font-size: 4rem;
-}
-
 .score-container {
     display: flex;
-    gap: 300px;
-    max-width: 500px;
+    width: 200px;
+    margin-top: 10rem;
+    justify-content: center;
 }
 
-#player-score, #computer-score {
+#score {
     color: white;
     font-size: 3rem;
 }
@@ -76,12 +73,19 @@ img {
     color: white;
     font-size: 5rem;
     font-style: italic;
-    background-color: red;
 }
 
 #reset-button {
     color: white;
     font-size: 3rem;
     font-style: italic;
-    background-color: black;
+    background-color: orange;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transition: all 0.2s ease;
+}
+
+#reset-button:hover {
+    cursor: pointer;
+    transform: scale(1.3);
 }

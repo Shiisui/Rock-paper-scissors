@@ -13,12 +13,21 @@
 </head>
 <body>
     <div class="main">
-        <header class="title">
+        <header id="title">
             <h1>Rock Paper Scissors</h1>
         </header>
 
+        <h1>
+            <span
+               id="text-typing"
+               class="txt-rotate"
+               data-period="2000"
+               data-rotate='["Player vs Computer", "First to 5 win"]'></span>
+        </h1>
+          
+
         <div id="end-game"></div>
-        <div id="reset-button" class="button"></div>
+        <div id="reset-button"></div>
         <div id="game">
             <div id="rock" class="button">
                 <img src="imgs/rock.png" alt="rock">
@@ -30,13 +39,8 @@
                 <img src="imgs/scissors.png" alt="scissors">
             </div>
         </div>
-        <div class="score-label">
-            <p class="label">You</p>
-            <p class="label">Computer</p>
-        </div>
         <div class="score-container">
-            <div id="player-score">0</div>
-            <div id="computer-score">0</div>
+            <div id="score">0 - 0</div>
         </div>
     </div>
 </body>
