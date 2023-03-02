@@ -1,223 +1,83 @@
-let rounds = 0;
-let stopit = document.getElementById('stop');
-
-let finished = 1;
-
+let buttons = document.querySelectorAll('.button');
+let playerSelection;
+let computerSelection;
 let playerScore = 0;
 let computerScore = 0;
+let endGame = document.getElementById("end-game");
+let resetButton = document.getElementById("reset-button");
+let game = document.getElementById("game");
 
-let body = document.querySelector("body");
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let img = button.querySelector('img');
+        playerSelection = img.alt;
+        computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
 
-body.addEventListener('mousemove', function (e) {
-    
-        console.log(e);
-        document.body.style.backgroundColor = "rgb("+e.offsetX+","+e.offsetY+", 40)";
-    
-})
+        if (playerScore === 5 || computerScore === 5) {
+            getWinner();
+        }
+    });
+});
+
+const arrayPlay = ["rock", "paper", "scissors"];
 
 function computerPlay() {
-    computerPlayed = Math.floor(Math.random()*3) + 1;
-    
-    if (computerPlayed === 1) {
-        return "Rock";
+    return arrayPlay[Math.round((Math.random() * arrayPlay.length))];
+}
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
     }
-    else if (computerPlayed === 2) {
-        return "Paper";
+    else if ((computerSelection == "rock" && playerSelection == "scissors") ||
+    (computerSelection == "scissors" && playerSelection == "paper") ||
+    (computerSelection == "paper" && playerSelection == "rock")) {
+        computerScore = ++computerScore;
+        updateComputerScore();
     }
     else {
-        return "Scissors";
-    }
-
-    
-}
-function playRound(playerSelection, computerSelection) {
-
-    let player = playerSelection;
-    let computer = computerSelection;
-
-        if (computer === player) {
-            return "tie";
-        }
-     
-         else if (player === "Paper" && computer === "Rock" || player === "Scissors" && computer === "Paper" || player === "Rock" && computer === "Scissors") {
-            return "player";
-        }
-        else {
-            
-            return "computer";
-        }
-     
-}
-function dothis (e){
-    let score;
-    let player;
-    let computer;
-        
-        if (rounds > 4) {
-            
-        while (stopit.firstChild) {
-            stopit.removeChild(stopit.firstChild);
-          }
-          
-          gameResult(true);
-            finished = 1;
-            rounds = 0;
-            computerScore = 0;
-            playerScore = 0;
-         }
-        else if (e.target == rock){
-            player = "Rock";
-            computer = computerPlay();
-            score = playRound(player, computer );
-            console.log(player);
-            console.log(computer);
-            console.log(score);
-            roundResult(score, player, computer);
-            ++rounds;
-            
-        }
-        else if (e.target == paper) {
-            player = "Paper";
-            computer = computerPlay();
-            score = playRound(player, computer);
-            console.log(player);
-            console.log(computer);
-            console.log(score);
-            roundResult(score, player, computer);
-
-            ++rounds;
-
-        }
-         else if (e.target == scissors) {
-            player = "Scissors";
-            computer = computerPlay();
-            score = playRound(player, computer);
-            console.log(player);
-            console.log(computer);
-            console.log(score);
-            roundResult(score, player, computer);
-            ++rounds;
-            
-        }
-        else ++rounds;
-
-
-        
-        gameResult(score);
-        if (rounds > 4) {
-            
-            while (stopit.firstChild) {
-                stopit.removeChild(stopit.firstChild);
-              }
-              finished = 1;
-              rounds = 0;
-              computerScore = 0;
-              playerScore = 0;
-            
-            
-            }
-       
-        
-
-}
-
-let gameStart = document.getElementById("start");
-gameStart.addEventListener("click", startThegame);
-
-function roundResult (score, p, c) {
-    
-    
-
-    switch(score) {
-        case "player":
-            newDiv.textContent = "You win!" +  ` ${p}` + " beats " + `${c}\n\n\n`;
-        break;
-
-        case "computer":
-            newDiv.textContent = "You lost!" +  ` ${c}` + " beats " + `${p}\n\n\n`;
-        break;
-            
-        default: 
-            newDiv.textContent = `${p}` + " and " + `${c}` + " Make's a tie \n\n\n";
-        break;
-
-        
+        playerScore = ++playerScore;
+        updatePlayerScore();
     }
 }
 
-
-
-
-function startThegame(e) {
-        if (e && finished === 1) {
-    let rock = document.createElement('img');
-    let paper = document.createElement('img');
-    let scissors = document.createElement('img');
-        
-    rock.setAttribute('id','rock');
-    paper.setAttribute('id','paper');
-    scissors.setAttribute('id','scissors');
-
-    rock.src="imgs/Rock.jpg";
-    paper.src="imgs/Paper.jpg";
-    scissors.src="imgs/Scissors.jpg";
-
-    // rock.textContent = "Rock";
-    // paper.textContent = "Paper";
-    // scissors.textContent = "Scissors";
-
-
-    stopit.appendChild(rock);
-    stopit.appendChild(paper);
-    stopit.appendChild(scissors);
-
-
-    rock.addEventListener('click', dothis);
-    paper.addEventListener('click', dothis);
-    scissors.addEventListener('click', dothis);
-
-    finished = 0;
+function updatePlayerScore() {
+    let playerScoreText = document.getElementById('player-score');
+    playerScoreText.textContent = playerScore;
 
 }
 
+function updateComputerScore() {
+    let computerScoreText = document.getElementById('computer-score');
+    computerScoreText.textContent = computerScore;
 }
 
-let newDiv = document.querySelector('.text');
-
-
-
-
-
-
-function gameResult(score) {
-        
-        
-
-        
-            switch (score) {
-            case "player":
-                playerScore++;
-            break;
-
-            case "computer":
-                
-                computerScore++;
-            break;
-
-            
-
-
-    }
-if (rounds === 5) {
+function getWinner() {
+    terminateGame();
     if (playerScore > computerScore) {
-        newDiv.textContent = "You won the game \n\n" + "Player Result: " +`${playerScore}\n\n` + "Computer Result: " + `${computerScore}`;
+        endGame.textContent = "You win!";
+    } 
+    else {
+        endGame.textContent = "You lost..";
     }
-    else if (playerScore < computerScore) {
-        newDiv.textContent = "You lost the game \n\n" + "Player Result: " +`${playerScore}\n\n` + "Computer Result: " + `${computerScore}`;
-    }
-    else if (playerScore === computerScore){
-        newDiv.textContent = "The game is a tie \n\n" + "Player Result: " +`${playerScore}\n\n` + "Computer Result: " + `${computerScore}`;
-    }
+    resetButton.textContent = "Play Again";
+    endGame.style.display = "block";
+    resetButton.style.display = "block";
 }
-           
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    updatePlayerScore();
+    updateComputerScore();
+    endGame.style.display = "none";
+    resetButton.style.display = "none";
+    endGame.textContent = "";
+    resetButton.textContent = "";
+    game.style.display = "flex";
+}
+
+function terminateGame() {
+    game.style.display = "none";
+    resetButton.onclick = () => resetGame();
 }

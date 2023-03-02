@@ -1,44 +1,87 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgb(90, 90, 250);
     height: 100vh;
-    
-    
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
 }
 
-span {
-    display: flex;
-    justify-content: space-between;
-    
-}
-#container {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-}
-
-#start {
-    margin-top: 50px;
-    background-color: blue;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    color: white;
-    font-weight: 100;
-    font-size: 30px;
-}
-
-
-img {
-    flex: 0 0 auto;
-    height: 100px;
-    width: 100px;
-}
-
-.text {
-    font-size: 20px;
+h1 {
+    font-size: 5rem;
     text-align: center;
     color: white;
-    font-weight: 900;
+    font-style: italic;
+}
+
+.main {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#game {
+    width: 990px;
+    height: 300px;
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.score-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 500px;
+}
+
+.label {
+    background-color: black;
+    margin-top: 5rem;
+    color: white;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.score-container {
+    display: flex;
+    gap: 300px;
+    max-width: 500px;
+}
+
+#player-score, #computer-score {
+    color: white;
+    font-size: 3rem;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    -webkit-user-drag: none;
+}
+
+
+.button:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+.button {
+    transition: all 0.2s ease;
+}
+
+#end-game {
+    color: white;
+    font-size: 5rem;
+    font-style: italic;
+    background-color: red;
+}
+
+#reset-button {
+    color: white;
+    font-size: 3rem;
+    font-style: italic;
+    background-color: black;
 }
